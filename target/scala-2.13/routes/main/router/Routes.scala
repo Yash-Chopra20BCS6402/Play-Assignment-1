@@ -12,25 +12,29 @@ import _root_.controllers.Assets.Asset
 
 class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
-  // @LINE:7
-  Calculator_0: controllers.Calculator,
-  // @LINE:14
-  Assets_1: controllers.Assets,
+  // @LINE:6
+  HomeController_0: controllers.HomeController,
+  // @LINE:9
+  CalculatorController_1: controllers.CalculatorController,
+  // @LINE:15
+  Assets_2: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
 
   @javax.inject.Inject()
   def this(errorHandler: play.api.http.HttpErrorHandler,
-    // @LINE:7
-    Calculator_0: controllers.Calculator,
-    // @LINE:14
-    Assets_1: controllers.Assets
-  ) = this(errorHandler, Calculator_0, Assets_1, "/")
+    // @LINE:6
+    HomeController_0: controllers.HomeController,
+    // @LINE:9
+    CalculatorController_1: controllers.CalculatorController,
+    // @LINE:15
+    Assets_2: controllers.Assets
+  ) = this(errorHandler, HomeController_0, CalculatorController_1, Assets_2, "/")
 
   def withPrefix(addPrefix: String): Routes = {
     val prefix = play.api.routing.Router.concatPrefix(addPrefix, this.prefix)
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, Calculator_0, Assets_1, prefix)
+    new Routes(errorHandler, HomeController_0, CalculatorController_1, Assets_2, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -38,10 +42,11 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """add""", """controllers.Calculator.add(a:Int, b:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """subtract""", """controllers.Calculator.subtract(a:Int, b:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """multiply""", """controllers.Calculator.multiply(a:Int, b:Int)"""),
-    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """divide""", """controllers.Calculator.divide(a:Int, b:Int)"""),
+    ("""GET""", this.prefix, """controllers.HomeController.index()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """add/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""", """controllers.CalculatorController.add(a:Double, b:Double)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """subtract/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""", """controllers.CalculatorController.subtract(a:Double, b:Double)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """multiply/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""", """controllers.CalculatorController.multiply(a:Double, b:Double)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """divide/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""", """controllers.CalculatorController.divide(a:Double, b:Double)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
     Nil
   ).foldLeft(Seq.empty[(String, String, String)]) { (s,e) => e.asInstanceOf[Any] match {
@@ -50,84 +55,102 @@ class Routes(
   }}
 
 
-  // @LINE:7
-  private[this] lazy val controllers_Calculator_add0_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("add")))
+  // @LINE:6
+  private[this] lazy val controllers_HomeController_index0_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_Calculator_add0_invoker = createInvoker(
-    Calculator_0.add(fakeValue[Int], fakeValue[Int]),
+  private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
+    HomeController_0.index(),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Calculator",
-      "add",
-      Seq(classOf[Int], classOf[Int]),
+      "controllers.HomeController",
+      "index",
+      Nil,
       "GET",
-      this.prefix + """add""",
-      """ An example controller showing a sample home page""",
-      Seq()
-    )
-  )
-
-  // @LINE:8
-  private[this] lazy val controllers_Calculator_subtract1_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("subtract")))
-  )
-  private[this] lazy val controllers_Calculator_subtract1_invoker = createInvoker(
-    Calculator_0.subtract(fakeValue[Int], fakeValue[Int]),
-    play.api.routing.HandlerDef(this.getClass.getClassLoader,
-      "router",
-      "controllers.Calculator",
-      "subtract",
-      Seq(classOf[Int], classOf[Int]),
-      "GET",
-      this.prefix + """subtract""",
+      this.prefix + """""",
       """""",
       Seq()
     )
   )
 
   // @LINE:9
-  private[this] lazy val controllers_Calculator_multiply2_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("multiply")))
+  private[this] lazy val controllers_CalculatorController_add1_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("add/"), DynamicPart("a", """[^/]+""",true), StaticPart("/"), DynamicPart("b", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_Calculator_multiply2_invoker = createInvoker(
-    Calculator_0.multiply(fakeValue[Int], fakeValue[Int]),
+  private[this] lazy val controllers_CalculatorController_add1_invoker = createInvoker(
+    CalculatorController_1.add(fakeValue[Double], fakeValue[Double]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Calculator",
-      "multiply",
-      Seq(classOf[Int], classOf[Int]),
+      "controllers.CalculatorController",
+      "add",
+      Seq(classOf[Double], classOf[Double]),
       "GET",
-      this.prefix + """multiply""",
-      """""",
+      this.prefix + """add/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""",
+      """ An example controller showing a sample home page""",
       Seq()
     )
   )
 
   // @LINE:10
-  private[this] lazy val controllers_Calculator_divide3_route = Route("GET",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("divide")))
+  private[this] lazy val controllers_CalculatorController_subtract2_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("subtract/"), DynamicPart("a", """[^/]+""",true), StaticPart("/"), DynamicPart("b", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_Calculator_divide3_invoker = createInvoker(
-    Calculator_0.divide(fakeValue[Int], fakeValue[Int]),
+  private[this] lazy val controllers_CalculatorController_subtract2_invoker = createInvoker(
+    CalculatorController_1.subtract(fakeValue[Double], fakeValue[Double]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
-      "controllers.Calculator",
-      "divide",
-      Seq(classOf[Int], classOf[Int]),
+      "controllers.CalculatorController",
+      "subtract",
+      Seq(classOf[Double], classOf[Double]),
       "GET",
-      this.prefix + """divide""",
+      this.prefix + """subtract/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""",
       """""",
       Seq()
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_Assets_versioned4_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_CalculatorController_multiply3_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("multiply/"), DynamicPart("a", """[^/]+""",true), StaticPart("/"), DynamicPart("b", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CalculatorController_multiply3_invoker = createInvoker(
+    CalculatorController_1.multiply(fakeValue[Double], fakeValue[Double]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CalculatorController",
+      "multiply",
+      Seq(classOf[Double], classOf[Double]),
+      "GET",
+      this.prefix + """multiply/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:12
+  private[this] lazy val controllers_CalculatorController_divide4_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("divide/"), DynamicPart("a", """[^/]+""",true), StaticPart("/"), DynamicPart("b", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CalculatorController_divide4_invoker = createInvoker(
+    CalculatorController_1.divide(fakeValue[Double], fakeValue[Double]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CalculatorController",
+      "divide",
+      Seq(classOf[Double], classOf[Double]),
+      "GET",
+      this.prefix + """divide/""" + "$" + """a<[^/]+>/""" + "$" + """b<[^/]+>""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:15
+  private[this] lazy val controllers_Assets_versioned5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned4_invoker = createInvoker(
-    Assets_1.versioned(fakeValue[String], fakeValue[Asset]),
+  private[this] lazy val controllers_Assets_versioned5_invoker = createInvoker(
+    Assets_2.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Assets",
@@ -143,34 +166,40 @@ class Routes(
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
-    // @LINE:7
-    case controllers_Calculator_add0_route(params@_) =>
-      call(params.fromQuery[Int]("a", None), params.fromQuery[Int]("b", None)) { (a, b) =>
-        controllers_Calculator_add0_invoker.call(Calculator_0.add(a, b))
-      }
-  
-    // @LINE:8
-    case controllers_Calculator_subtract1_route(params@_) =>
-      call(params.fromQuery[Int]("a", None), params.fromQuery[Int]("b", None)) { (a, b) =>
-        controllers_Calculator_subtract1_invoker.call(Calculator_0.subtract(a, b))
+    // @LINE:6
+    case controllers_HomeController_index0_route(params@_) =>
+      call { 
+        controllers_HomeController_index0_invoker.call(HomeController_0.index())
       }
   
     // @LINE:9
-    case controllers_Calculator_multiply2_route(params@_) =>
-      call(params.fromQuery[Int]("a", None), params.fromQuery[Int]("b", None)) { (a, b) =>
-        controllers_Calculator_multiply2_invoker.call(Calculator_0.multiply(a, b))
+    case controllers_CalculatorController_add1_route(params@_) =>
+      call(params.fromPath[Double]("a", None), params.fromPath[Double]("b", None)) { (a, b) =>
+        controllers_CalculatorController_add1_invoker.call(CalculatorController_1.add(a, b))
       }
   
     // @LINE:10
-    case controllers_Calculator_divide3_route(params@_) =>
-      call(params.fromQuery[Int]("a", None), params.fromQuery[Int]("b", None)) { (a, b) =>
-        controllers_Calculator_divide3_invoker.call(Calculator_0.divide(a, b))
+    case controllers_CalculatorController_subtract2_route(params@_) =>
+      call(params.fromPath[Double]("a", None), params.fromPath[Double]("b", None)) { (a, b) =>
+        controllers_CalculatorController_subtract2_invoker.call(CalculatorController_1.subtract(a, b))
       }
   
-    // @LINE:14
-    case controllers_Assets_versioned4_route(params@_) =>
+    // @LINE:11
+    case controllers_CalculatorController_multiply3_route(params@_) =>
+      call(params.fromPath[Double]("a", None), params.fromPath[Double]("b", None)) { (a, b) =>
+        controllers_CalculatorController_multiply3_invoker.call(CalculatorController_1.multiply(a, b))
+      }
+  
+    // @LINE:12
+    case controllers_CalculatorController_divide4_route(params@_) =>
+      call(params.fromPath[Double]("a", None), params.fromPath[Double]("b", None)) { (a, b) =>
+        controllers_CalculatorController_divide4_invoker.call(CalculatorController_1.divide(a, b))
+      }
+  
+    // @LINE:15
+    case controllers_Assets_versioned5_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned4_invoker.call(Assets_1.versioned(path, file))
+        controllers_Assets_versioned5_invoker.call(Assets_2.versioned(path, file))
       }
   }
 }

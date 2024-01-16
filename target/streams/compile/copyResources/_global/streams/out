@@ -1,5 +1,5 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\Downloads\CalculatorUsingPlay\conf\application.conf,C:\Users\DELL\Downloads\CalculatorUsingPlay\target\scala-2.13\classes\application.conf)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\Downloads\CalculatorUsingPlay\conf\logback.xml,C:\Users\DELL\Downloads\CalculatorUsingPlay\target\scala-2.13\classes\logback.xml)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\Downloads\CalculatorUsingPlay\conf\messages,C:\Users\DELL\Downloads\CalculatorUsingPlay\target\scala-2.13\classes\messages)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\Downloads\CalculatorUsingPlay\conf\routes,C:\Users\DELL\Downloads\CalculatorUsingPlay\target\scala-2.13\classes\routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\conf\application.conf,C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\target\scala-2.13\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\conf\logback.xml,C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\target\scala-2.13\classes\logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\conf\messages,C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\target\scala-2.13\classes\messages)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\conf\routes,C:\Users\DELL\play-samples-2.9.x\play-samples-2.9.x\Play-Assignment-1\target\scala-2.13\classes\routes)[0m

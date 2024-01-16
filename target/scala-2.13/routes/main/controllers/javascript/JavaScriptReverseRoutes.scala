@@ -6,60 +6,80 @@ import play.api.routing.JavaScriptReverseRoute
 
 import _root_.controllers.Assets.Asset
 
-// @LINE:7
+// @LINE:6
 package controllers.javascript {
 
-  // @LINE:7
-  class ReverseCalculator(_prefix: => String) {
+  // @LINE:6
+  class ReverseHomeController(_prefix: => String) {
 
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:7
-    def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Calculator.add",
+    // @LINE:6
+    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.index",
       """
-        function(a0,b1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "add" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("a", a0), (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("b", b1)])})
-        }
-      """
-    )
-  
-    // @LINE:8
-    def subtract: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Calculator.subtract",
-      """
-        function(a0,b1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "subtract" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("a", a0), (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("b", b1)])})
-        }
-      """
-    )
-  
-    // @LINE:9
-    def multiply: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Calculator.multiply",
-      """
-        function(a0,b1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "multiply" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("a", a0), (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("b", b1)])})
-        }
-      """
-    )
-  
-    // @LINE:10
-    def divide: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.Calculator.divide",
-      """
-        function(a0,b1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "divide" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("a", a0), (""" + implicitly[play.api.mvc.QueryStringBindable[Int]].javascriptUnbind + """)("b", b1)])})
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
         }
       """
     )
   
   }
 
-  // @LINE:14
+  // @LINE:9
+  class ReverseCalculatorController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:9
+    def add: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalculatorController.add",
+      """
+        function(a0,b1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "add/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("a", a0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("b", b1))})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def subtract: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalculatorController.subtract",
+      """
+        function(a0,b1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "subtract/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("a", a0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("b", b1))})
+        }
+      """
+    )
+  
+    // @LINE:11
+    def multiply: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalculatorController.multiply",
+      """
+        function(a0,b1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "multiply/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("a", a0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("b", b1))})
+        }
+      """
+    )
+  
+    // @LINE:12
+    def divide: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalculatorController.divide",
+      """
+        function(a0,b1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "divide/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("a", a0)) + "/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Double]].javascriptUnbind + """)("b", b1))})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:15
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -67,7 +87,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:14
+    // @LINE:15
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
